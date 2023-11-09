@@ -1,0 +1,194 @@
+/*Reszponzív weboldal*/
+* {
+    margin: 0;
+    padding: 0;
+    /*minden html elem külső margóját és belső margóját 0-ra tesszük*/
+    box-sizing: border-box; /*elem szélességébe witdh értékbe bele tartozik a padding és a border is.*/
+}
+
+
+h1 {
+    color: rgb(135, 114, 141);
+
+}
+
+
+article{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 
+    "e k z";
+
+}
+
+
+
+body {
+    width: 90%;
+    max-width: 900px;
+    margin: auto;
+    background-image: url("background.jpg");
+    color: white;
+
+}
+
+
+main{
+    /*Tároló, szülőelem*/
+    display: grid;
+    grid-template-columns: 150px 3fr 2fr;
+    grid-template-areas: 
+    "h h h"
+    "n n n"
+    "b a j"
+    "f f f";
+}
+
+/* Minden gyerekelemet elnevezek! Fontos hogy egy se maradjon ki! */
+header{
+    grid-area: h;
+}
+article{
+    grid-area: a;
+}
+nav{
+    grid-area: n;
+}
+footer{
+    grid-area: f;
+}
+aside#bal{
+    grid-area: b;
+}
+aside#jobb{
+    grid-area: j;
+}
+
+
+img{
+    max-width: 100%;
+    border: 1px solid white;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+
+
+#sor1{
+    grid-area: e;
+
+}
+
+#sor2{
+    grid-area: k;
+
+}
+
+
+#sor3{
+    grid-area: z;
+
+}
+
+
+
+
+header, nav, article, footer, aside {
+    border: 1px solid rgb(255, 255, 255);
+    padding: 10px;
+}
+
+
+/*menü kialakítása*/
+nav ul{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    list-style-type: none;
+    text-align: center;
+    gap: 5px;
+}
+
+
+
+
+nav li{
+    background-color: rgb(255, 255, 255);
+    padding: 5px;
+
+}
+
+
+
+
+nav a{
+    text-decoration: none;
+
+}
+
+
+
+
+
+
+/* TABLET nézet  - reszponzivitás kialakítása (ez alá nem szabad semmi rosszaságot)*/
+@media only screen and (max-width: 700px) {/* töréspont */
+    body, main {
+      width: 100%;
+    }
+    main{
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "h"
+        "n"
+        "b"
+        "j"
+        "a"
+        "f";
+    }
+    article{
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "e"
+        "k"
+        "z";
+    }
+
+    nav ul{
+        gap: 5px;
+        grid-template-columns: 1fr;
+    }
+
+    aside{
+        grid-template-columns: 1fr;
+    }
+  }
+
+
+
+
+/* MOBIL nézet  - reszponzivitás kialakítása (ez alá nem szabad semmi rosszaságot)*/
+@media only screen and (max-width: 450px) {/* töréspont */
+    main {
+        width: 100%;
+        font-size: 12px;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "h"
+        "n"
+        "a"
+        "b"
+        "j"
+        "f";
+    }
+    nav ul {
+        grid-template-columns: 1fr;
+        gap: 0px;
+    
+    }
+    article{
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "e"
+        "k"
+        "z";
+    }
+  }
